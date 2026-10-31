@@ -1,0 +1,16 @@
+ЛЕОНИД — сайт с Telegram-формой для Cloudflare Pages
+
+1. Создайте НОВЫЙ пустой GitHub-репозиторий.
+2. Загрузите в корень репозитория папки public и functions, а также файлы из этого архива. НЕ загружайте ZIP как один файл и НЕ создавайте лишнюю вложенную папку.
+3. Cloudflare -> Workers & Pages -> Create -> Pages -> Connect to Git.
+4. Выберите репозиторий. Framework preset: None; Build command: пусто; Build output directory: public; Root directory: пусто.
+5. В Settings -> Variables and Secrets для Production создайте:
+   TELEGRAM_BOT_TOKEN (Secret) — токен бота
+   TELEGRAM_CHAT_ID (Text) — ID получателя
+6. Сделайте новый Production deploy после добавления переменных.
+7. Проверьте https://ВАШ-ДОМЕН.pages.dev/api/telegram — ожидается ready:true, tokenValid:true, chatAccessible:true.
+8. Откройте главную страницу, заполните форму и проверьте сообщение в Telegram.
+
+Не вставляйте токен бота в GitHub, HTML или сообщения посторонним.
+
+Важно: GET-диагностика проверяет настройки и доступ к чату, но только отправка тестовой заявки подтверждает работу POST.
